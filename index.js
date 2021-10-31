@@ -59,21 +59,6 @@ async function run() {
 
         //My order get api
 
-        // app.get('/myOrder', async (req, res) => {
-        //     const email = req.query.email;
-        //     const query = { email: "tasnimsumaiya07@gmail.com" };
-        //     const cursor = myOrderCollection.find(query);
-        //     const myOrder = await cursor.toArray();
-        //     res.send(myOrder);
-        // })
-
-        // app.get('/myOrder/:email', (req, res) => {
-        //     myOrderCollection.find({ email: req.params.email })
-        //         .toArray((err, documents) => {
-        //             res.send(documents);
-        //         })
-        // })
-
         app.get("/myOrder/:email", async (req, res) => {
             const result = await myOrderCollection
                 .find({
@@ -84,33 +69,19 @@ async function run() {
         });
 
         //Delete API
+
+
         // app.delete('/myOrder/:id', async (req, res) => {
         //     const id = req.params.id;
         //     const query = { _id: ObjectId(id) };
         //     const result = await myOrderCollection.deleteOne(query);
-        //     console.log('deleting user with id', result);
+
+        //     console.log('deleting user with id ', result);
 
         //     res.json(result);
         // })
 
-        app.delete('/myOrder/:id', async (req, res) => {
-            const id = req.params.id;
-            const query = { _id: ObjectId(id) };
-            const result = await myOrderCollection.deleteOne(query);
 
-            console.log('deleting user with id ', result);
-
-            res.json(result);
-        })
-
-        // app.get("/myOrder", async (req, res) => {
-        //     const result = await myOrderCollection
-        //         .find({
-        //             email: req.params.email
-        //         })
-        //         .toArray();
-        //     res.send(result);
-        // });
 
     }
 
